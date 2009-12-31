@@ -18,6 +18,7 @@ import org.mozilla.javascript.tools.envjs.Global;
 import org.mozilla.javascript.tools.envjs.Window;
 
 public class ParsleyApp implements I80App {
+	private static Class unused = Context.class;
 
 	public static void main(String[] args) throws IOException {
 		if (args.length != 2) {
@@ -68,7 +69,8 @@ public class ParsleyApp implements I80App {
 
 	@Override
 	public void initialize(Properties properties, byte[] data) {
-		parselet = new String(data);
+		if (data != null)
+			parselet = new String(data);
 	}
 
 	@Override
@@ -79,9 +81,9 @@ public class ParsleyApp implements I80App {
 		Window window = new Window();
 		global = new Global(window);
 		cx = ContextFactory.getGlobal().enterContext();
+		cx.setOptimizationLevel(-1);
 		global.init(cx);
 		global.initStandardObjects(cx, false);
-		cx.setOptimizationLevel(-1);
 		cx.setLanguageVersion(Context.VERSION_1_5);
 		try {
 			load("env-rhino.js");

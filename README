@@ -1,0 +1,13 @@
+This is an attempt to get the jQuery-based HTML-extraction framework http://github.com/fizx/pquery running on Rhino and/or 80legs.  Right now it runs fine in Rhino, and not on 80legs.  This is a giant 
+
+You can compile the jar by just running ant, but for some reason, I'm storing the jars in git too, so you can just run things.  Did I mention that this is a giant hack?
+
+You can run locally in Rhino by checking out the source and running the following command in the project folder:
+
+java -jar dist/parsley-on-legs.jar test.let test.html
+
+In theory, if there wasn't classloader hell, you could also run the 80legs tests:
+
+java -Xmx256M -jar 80legsProcessTest_0.83h.jar dist/parsley-on-legs.jar pageinfo.txt index.html test.let
+
+Since that doesn't work, there's little hope of it running on 80legs directly at this moment.  

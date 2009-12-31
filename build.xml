@@ -2,16 +2,21 @@
 <project default="create_run_jar" name="Create Runnable Jar for Project parsley-on-legs">
     <!--this file was created by Eclipse Runnable JAR Export Wizard-->
     <!--ANT 1.7 is required                                        -->
-    <target name="create_run_jar">
-        <jar destfile="/Users/kyle/workspace/parsley-on-legs/dist/parsley-on-legs.jar" filesetmanifest="mergewithoutmain">
+    <target name="compile">
+      <mkdir dir="bin" />
+      <javac srcdir="src" destdir="bin" classpath="lib/env-js.jar"/>
+    </target>
+    <target name="create_run_jar" depends="compile">
+        <mkdir dir="dist" />
+        <jar destfile="dist/parsley-on-legs.jar" filesetmanifest="mergewithoutmain">
             <manifest>
                 <attribute name="Built-By" value="${user.name}"/>
                 <attribute name="Main-Class" value="com.eightylegs.customer.ParsleyApp"/>
                 <attribute name="Class-Path" value="."/>
             </manifest>
-            <fileset dir="/Users/kyle/workspace/parsley-on-legs/bin"/>
-            <fileset dir="/Users/kyle/workspace/parsley-on-legs/resources"/>
-            <zipfileset excludes="META-INF/*.SF" src="/Users/kyle/workspace/parsley-on-legs/lib/env-js.jar"/>
+            <fileset dir="bin"/>
+            <fileset dir="resources"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/env-js.jar"/>
         </jar>
     </target>
 </project>

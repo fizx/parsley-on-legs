@@ -1,0 +1,3 @@
+URL=http://news.ycombinator.com/
+STATUS=200 OK
+HEADER=Content-type,text/html
