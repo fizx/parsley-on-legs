@@ -1,6 +1,6 @@
-This is an attempt to get the jQuery-based HTML-extraction framework http://github.com/fizx/pquery running on Rhino and/or 80legs.  Right now it runs fine in Rhino, and not on 80legs.  This is a giant 
+This is an attempt to get the jQuery-based HTML-extraction framework http://github.com/fizx/pquery running on Rhino and/or 80legs.  Right now it runs fine in Rhino, and not on 80legs.  Did I mention that this is a giant hack?
 
-You can compile the jar by just running ant, but for some reason, I'm storing the jars in git too, so you can just run things.  Did I mention that this is a giant hack?
+You can compile the jar by just running ant, but for some reason, I'm storing the jars in git too, so you don't need to.
 
 You can run locally in Rhino by checking out the source and running the following command in the project folder:
 
